@@ -1,118 +1,74 @@
-import numpy as np
-
 class Registro:
-    __temperatura = ""
-    __humedad = ""
-    __presion_atmosferica = ""
-
     def __init__(self, temperatura, humedad, presion_atmosferica):
         self.temperatura = temperatura
         self.humedad = humedad
         self.presion_atmosferica = presion_atmosferica
 
-    registros_mensuales = [[None for _ in range(24)] for _ in range(31)]
+    def leer_archivo(nombre_archivo):
+        registros = []
+        with open(nombre_archivo, "r") as archivo:
+            for linea in archivo:
+                dia, hora, temperatura, humedad, presion = linea.strip().split(",")
+                registros.append(((int(dia), int(hora)), Registro(float(temperatura), float(humedad), float(presion))))
+        return registros
 
-    def cargar_datos(archivo):
-        with open(archivo, "r") as f:
-            for linea in f:
-                dia, hora, temperatura, humedad, presion = map(float, linea.strip().split(","))
-                registros_mensuales[int(dia) - 1][int(hora)] = Registro(temperatura, humedad, presion)
+    def almacenar_registros(registros):
+        lista_bidimensional = [[None for _ in range(24)] for _ in range(31)]
+        for (dia, hora), registro in registros:
+            lista_bidimensional[dia - 1][hora] = registro
+        return lista_bidimensional
 
-    archivo = "datos_meteorologicos.txt"
-    cargar_datos(archivo)
-
-    import csv
-
-    # Inicializar la lista bidimensional
-    datos_mes = [[None for _ in range(24)] for _ in range(31)]
-
-    # Leer el archivo y almacenar los datos en la lista bidimensional
-    with open("datos_meteorologicos.csv", "r") as archivo:
-        lector = csv.reader(archivo)
-        for fila in lector:
-            dia, hora, temp, hum, pres = map(float, fila)
-            dia, hora = int(dia) - 1, int(hora) # Ajustar a índices de la lista bidimensional
-            datos_mes[dia][hora] = Registro(temp, hum, pres)
-
-    # Función para mostrar el menú de opciones
-    def mostrar_menu():
-        print("Opciones:")
-        print("1. Mostrar día y hora de menor y mayor valor para cada variable.")
-        print("2. Indicar la temperatura promedio mensual por cada hora.")
-        print("3. Listar valores de las tres variables para cada hora de un día específico.")
-        print("4. Salir")
-
-    # Funciones para realizar las tareas solicitadas
-    def tarea_1():
-        # Implementar lógica para encontrar el día y hora de menor y mayor valor para cada variable
-
-    def tarea_2():
-        # Implementar lógica para calcular la temperatura promedio mensual por cada hora
-
-    def tarea_3(dia):
-        # Implementar lógica para listar los valores de las tres variables para cada hora del día dado
-
-    # Bucle principal del programa
-    while True:
-        mostrar_menu()
-        opcion = int(input("Seleccione una opción: "))
+    def mostrar_valores_extremos(lista_bidimensional):
+        min_temperatura = max_temperatura = lista_bidimensional[0][0].temperatura
+        min_humedad = max_humedad = lista_bidimensional[0][0].humedad
+        min_presion = max_presion = lista_bidimensional[0][0].presion_atmosferica
+        min_temp_coords = max_temp_coords = min_hum_coords = max_hum_coords = min_pres_coords = max_pres_coords = (0, 0)
     
-        if opcion == 1:
-            tarea_1()
-        elif opcion == 2:
-            tarea_2()
-        elif opcion == 3:
-            dia = int(input("Ingrese el número de día: "))
-            tarea_3(dia)
-        elif opcion == 4:
-            break
-        else:
-            print("Opción inválida, por favor intente nuevamente.")
-
-
-    def mostrar_menores_mayores(registros):
-        menor_temperatura = np.min([[registro.temperatura for registro in fila] for fila in registros])
-        mayor_temperatura = np.max([[registro.temperatura for registro in fila] for fila in registros])
-        menor_humedad = np.min([[registro.humedad for registro in fila] for fila in registros])
-        mayor_humedad = np.max([[registro.humedad for registro in fila] for fila in registros])
-        menor_presion = np.min([[registro.presion_atmosferica for registro in fila] for fila in registros])
-        mayor_presion = np.max([[registro.presion_atmosferica for registro in fila] for fila in registros])
-
-        print("Menor temperatura:", menor_temperatura)
-        print("Mayor temperatura:", mayor_temperatura)
-        print("Menor humedad:", menor_humedad)
-        print("Mayor humedad:", mayor_humedad)
-        print("Menor presión atmosférica:", menor_presion)
-        print("Mayor presión atmosférica:", mayor_presion)
-
-    def temperatura_promedio_por_hora(registros):
-        for hora in range(registros.shape[1]):
-            suma_temperaturas = sum([registro.temperatura for registro in registros[:, hora]])
-            promedio = suma_temperaturas / registros.shape[0]
-            print("Hora", hora, "temperatura promedio:", promedio)
-
-    def listar_valores_por_dia(registros, dia):
-        print("Hora", "Temperatura", "Humedad", "Presión")
-        for hora, registro in enumerate(registros[dia - 1]):
-            print(hora, registro.temperatura, registro.humedad, registro.presion_atmosferica)
-
-    while True:
-        print("Menú de opciones:")
-        print("1. Mostrar menor y mayor valor de cada variable")
-        print("2. Temperatura promedio mensual por hora")
-        print("3. Listar valores de un día específico")
-        print("4. Salir")
-
-        opcion = int(input("Seleccione una opción: "))
+        for dia in range(31):
+            for hora in range(24):
+                registro = lista_bidimensional[dia][hora]
+                if registro.temperatura < min_temperatura:
+                    min_temperatura = registro.temperatura
+                    min_temp_coords = (dia + 1, hora)
+                if registro.temperatura > max_temperatura:
+                    max_temperatura = registro.temperatura
+                    max_temp_coords = (dia + 1, hora)
+                if registro.humedad < min_humedad:
+                    min_humedad = registro.humedad
+                    min_hum_coords = (dia + 1, hora)
+                if registro.humedad > max_humedad:
+                    max_humedad = registro.humedad
+                    max_hum_coords = (dia + 1, hora)
+                if registro.presion_atmosferica < min_presion:
+                    min_presion = registro.presion_atmosferica
+                    min_pres_coords = (dia + 1, hora)
+                if registro.presion_atmosferica > max_presion:
+                    max_presion = registro.presion_atmosferica
+                    max_pres_coords = (dia + 1, hora)
     
-        if opcion == 1:
-            mostrar_menores_mayores()
-        elif opcion == 2:
-            temperatura_promedio_por_hora()
-        elif opcion == 3:
-            dia = int(input("Ingrese el número de día: "))
-            listar_valores_por_dia(dia)
-        elif opcion == 4:
-            break
-        else:
-            print("Opción inválida")
+        print(f"Temperatura mínima: {min_temperatura} en el día {min_temp_coords[0]}, hora {min_temp_coords[1]}")
+        print(f"Temperatura máxima: {max_temperatura} en el día {max_temp_coords[0]}, hora {max_temp_coords[1]}")
+        print(f"Humedad mínima: {min_humedad} en el día {min_hum_coords[0]}, hora {min_hum_coords[1]}")
+        print(f"Humedad máxima: {max_humedad} en el día {max_hum_coords[0]}, hora {max_hum_coords[1]}")
+        print(f"Presión mínima: {min_presion} en el día {min_pres_coords[0]}, hora {min_pres_coords[1]}")
+        print(f"Presión máxima: {max_presion} en el día {max_pres_coords[0]}, hora {max_pres_coords[1]}")
+
+    def calcular_promedio_temperatura_por_hora(lista_bidimensional):
+        suma_temperaturas = [0] * 24
+        contador = [0] * 24
+        for dia in range(31):
+            for hora in range(24):
+                suma_temperaturas[hora] += lista_bidimensional[dia][hora].temperatura
+                contador[hora] += 1
+    
+        promedios = [suma_temperaturas[i] / contador[i] for i in range(24)]
+    
+        print("Temperatura promedio mensual por cada hora:")
+        for hora, promedio in enumerate(promedios):
+            print(f"{hora}: {promedio}")
+
+    def listar_valores_dia(dia, lista_bidimensional):
+        print("Hora\nTemperatura\nHumedad\nPresión")
+        for hora in range(24):
+            registro = lista_bidimensional[dia - 1][hora]
+            print(f"{hora}\n{registro.temperatura}\n{registro.humedad}\n{registro.presion_atmosferica}")
