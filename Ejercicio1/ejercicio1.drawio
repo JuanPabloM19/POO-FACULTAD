@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net" modified="2023-05-04T19:48:26.642Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36" etag="Qqv4XlOaWbVfwkfagGKr" version="21.2.8">
+  <diagram name="Página-1" id="_cJ4TrHCvjClVpAjoO-O">
+    <mxGraphModel dx="1434" dy="778" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Y6CmUJQuf2RAiW55raii-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-2" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="50" y="250" width="10" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-3" value="UI" style="shape=umlBoundary;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="160" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-4" value="Gestor correo" style="ellipse;shape=umlControl;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="379" y="160" width="70" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-5" value="Correo" style="ellipse;shape=umlEntity;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="510" y="160" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-8" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="250" y="250" width="10" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-9" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="409" y="250" width="10" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-10" value="" style="html=1;points=[];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};" vertex="1" parent="1">
+          <mxGeometry x="545" y="250" width="10" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-13" value="Ingresa archivo con correos" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="60" y="323" as="sourcePoint" />
+            <mxPoint x="250" y="323" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-14" value="Busca correos validos" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="260" y="336" as="sourcePoint" />
+            <mxPoint x="410" y="336" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-15" value="Verifica correos" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="419" y="350" as="sourcePoint" />
+            <mxPoint x="545" y="350.33333333333337" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-20" value="devuelve correos validos&lt;br&gt;e invalidos" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1" source="Y6CmUJQuf2RAiW55raii-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="549" y="397" as="sourcePoint" />
+            <mxPoint x="419" y="397" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-21" value="devuelve la lista de correos&lt;br&gt;validos e invalidos" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="409" y="416.5" as="sourcePoint" />
+            <mxPoint x="260" y="416.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-22" value="muestra la informacion al usuario" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="249" y="431" as="sourcePoint" />
+            <mxPoint x="60" y="431.3333333333335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-40" value="Ingresa dominio a buscar" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="60" y="460" as="sourcePoint" />
+            <mxPoint x="250" y="460" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-42" value="Busca cantidad de dominios&amp;nbsp;&lt;br&gt;igual al ingresado" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="260" y="476.14" as="sourcePoint" />
+            <mxPoint x="410" y="476.14" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-43" value="Verifica que sea igual&lt;br&gt;al buscado" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="419" y="494.1428571428571" as="sourcePoint" />
+            <mxPoint x="545" y="494.28" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-44" value="devuelve dominios&amp;nbsp;&lt;br&gt;buscados" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="545" y="528" as="sourcePoint" />
+            <mxPoint x="419" y="528" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-45" value="devuelve cantidad" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="409" y="539" as="sourcePoint" />
+            <mxPoint x="260" y="538.8571428571429" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Y6CmUJQuf2RAiW55raii-47" value="muestra cantidad de dominios que&lt;br&gt;fueron encontrados con el ingresado" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="249" y="552" as="sourcePoint" />
+            <mxPoint x="60" y="552.3333333333335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
