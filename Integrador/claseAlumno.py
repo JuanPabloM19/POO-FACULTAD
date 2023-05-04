@@ -1,16 +1,21 @@
 class Alumno:
-    def __init__(self, dni, apellido, nombre, carrera, anioquecursa):
-        self.dni = int(dni)
-        self.apellido = apellido
-        self.nombre = nombre
-        self.carrera = carrera
-        self.anio_cursa = int(anioquecursa)
+    __dni =""
+    __apellido =""
+    __nombre ="" 
+    __carrera ="" 
+    __anio_cursa ="" 
+    def __init__(self, dni="", apellido="", nombre="", carrera="", anioquecursa=""):
+        self.__dni = int(dni)
+        self.__apellido = apellido
+        self.__nombre = nombre
+        self.__carrera = carrera
+        self.__anio_cursa = int(anioquecursa)
 
     def __lt__(self, otro_alumno):
-        if self.anio_cursa != otro_alumno.anio_cursa:
-            return self.anio_cursa < otro_alumno.anio_cursa
+        if self.__anio_cursa != otro_alumno.__anio_cursa:
+            return self.__anio_cursa < otro_alumno.__anio_cursa
         else:
-            if self.apellido != otro_alumno.apellido:
-                return self.apellido < otro_alumno.apellido
+            if self.__apellido != otro_alumno.__apellido:
+                return self.__apellido < otro_alumno.__apellido
             else:
-                return self.nombre < otro_alumno.nombre
+                return self.__nombre < otro_alumno.__nombre

@@ -1,8 +1,11 @@
 class Registro:
-    def __init__(self, temperatura, humedad, presion_atmosferica):
-        self.temperatura = temperatura
-        self.humedad = humedad
-        self.presion_atmosferica = presion_atmosferica
+    __temperatura = ""
+    __humedad = ""
+    __presion_atmosferica = ""
+    def __init__(self, temperatura="", humedad="", presion_atmosferica=""):
+        self.__temperatura = temperatura
+        self.__humedad = humedad
+        self.__presion_atmosferica = presion_atmosferica
 
     def leer_archivo(nombre_archivo):
         registros = []

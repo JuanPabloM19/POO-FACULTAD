@@ -1,5 +1,4 @@
 import csv
-
 class Email:
     __idCuenta = ""
     __dominio = ""

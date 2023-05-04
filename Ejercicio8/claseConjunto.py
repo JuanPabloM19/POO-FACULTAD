@@ -1,17 +1,18 @@
 class Conjunto:
-    def __init__(self, elementos):
-        self.elementos = set(elementos)
+    __elementos=""
+    def __init__(self, elementos=""):
+        self.__elementos = set(elementos)
 
     def __add__(self, otro_conjunto):
-        union = self.elementos | otro_conjunto.elementos
+        union = self.__elementos | otro_conjunto.__elementos
         return Conjunto(union)
 
     def __sub__(self, otro_conjunto):
-        diferencia = self.elementos - otro_conjunto.elementos
+        diferencia = self.__elementos - otro_conjunto.__elementos
         return Conjunto(diferencia)
 
     def __eq__(self, otro_conjunto):
-        return self.elementos == otro_conjunto.elementos
+        return self.__elementos == otro_conjunto.__elementos
 
     def __str__(self):
-        return "{" + ", ".join(map(str, self.elementos)) + "}"
+        return "{" + ", ".join(map(str, self.__elementos)) + "}"
