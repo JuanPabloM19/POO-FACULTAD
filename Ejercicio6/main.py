@@ -19,19 +19,19 @@ def menu():
 
 def buscar_viajero(num_viajero):
     for viajero in viajeros:
-        if viajero.num_viajero == num_viajero:
+        if viajero.get_num_viajero() == num_viajero:
             return viajero
     return None
 
 def viajero_con_mas_millas(viajeros):
-    max_millas = max(viajeros, key=lambda v: v.millas_acumuladas)
-    return [v for v in viajeros if v.millas_acumuladas == max_millas.millas_acumuladas]
+    max_millas = max(viajeros, key=lambda v: v.get_millas_acumuladas())
+    return [v for v in viajeros if v.get_millas_acumuladas() == max_millas.get_millas_acumuladas()]
 
 def mostrar_viajeros_con_mas_millas(viajeros):
     viajeros_max_millas = viajero_con_mas_millas(viajeros)
     print("Viajeros con mayor cantidad de millas acumuladas:")
     for v in viajeros_max_millas:
-        print(f"{v.nombre} {v.apellido} ({v.num_viajero}): {v.millas_acumuladas} millas")
+        print(f"{v.get_nombre()} {v.get_apellido()} ({v.get_num_viajero()}): {v.get_millas_acumuladas()} millas")
 
 while True:
     menu()
@@ -56,8 +56,8 @@ while True:
     elif opcion == 'b':
         millas_recorridas = int(input("Ingrese la cantidad de millas recorridas: "))
         viajero += millas_recorridas  # Uso de la sobrecarga del operador suma
-        print("Nuevo total de millas acumuladas:", viajero.millas_acumuladas)
+        print("Nuevo total de millas acumuladas:", viajero.get_millas_acumuladas())
     elif opcion == 'c':
         millas_a_canjear = int(input("Ingrese la cantidad de millas a canjear: "))
         viajero -= millas_a_canjear  # Uso de la sobrecarga del operador resta
-        print("Nuevo total de millas acumuladas:", viajero.millas_acumuladas)
+        print("Nuevo total de millas acumuladas:", viajero.get_millas_acumuladas())

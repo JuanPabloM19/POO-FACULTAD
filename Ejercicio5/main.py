@@ -44,7 +44,7 @@ def main():
         elif opcion == 4:
             codigo = input("Ingrese el código del plan: ")
             for plan in planes:
-                if plan.codigo == codigo:
+                if plan.get_codigo() == codigo:
                     nuevas_cuotas = int(input("Ingrese la nueva cantidad de cuotas para licitar: "))
                     PlanAhorro.set_datos_estaticos(PlanAhorro.cantidad_cuotas, nuevas_cuotas)
                     break

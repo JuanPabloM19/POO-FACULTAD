@@ -50,18 +50,30 @@ class ViajeroFrecuente:
 
     def __add__(self, other):
         if isinstance(other, int):
-            return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, str(self.__millas_acumuladas) + str(other))
+            return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, self.__millas_acumuladas + other)
         elif isinstance(other, ViajeroFrecuente):
             return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, self.__millas_acumuladas + other.__millas_acumuladas)
+
+    def __sub__(self, other):
+        if isinstance(other, int):
+            return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, self.__millas_acumuladas - other)
+        elif isinstance(other, ViajeroFrecuente):
+            return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, self.__millas_acumuladas - other.__millas_acumuladas)
 
     def __radd__(self, other):
         return self.__add__(other)
 
-    def __sub__(self, other):
-        if isinstance(other, int):
-            return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, str(self.__millas_acumuladas) + str(other))
-        elif isinstance(other, ViajeroFrecuente):
-            return ViajeroFrecuente(self.__num_viajero, self.__dni, self.__nombre, self.__apellido, str(self.__millas_acumuladas) - str(other.__millas_acumuladas))
-
     def __rsub__(self, other):
         return self.__sub__(other)
+
+    def get_num_viajero(self):
+        return self.__num_viajero
+    
+    def get_millas_acumuladas(self):
+        return self.__millas_acumuladas
+    
+    def get_nombre(self):
+        return self.__nombre
+
+    def get_apellido(self):
+        return self.__apellido

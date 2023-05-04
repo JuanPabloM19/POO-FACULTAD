@@ -28,3 +28,6 @@ class PlanAhorro:
 
     def __str__(self):
         return f"Código: {self.__codigo}, Modelo: {self.__modelo}, Versión: {self.__version}, Valor Vehículo: {self.__valor_vehiculo}"
+
+    def get_codigo(self):
+        return self.__codigo

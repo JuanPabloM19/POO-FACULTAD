@@ -26,3 +26,6 @@ class ViajeroFrecuente:
         else:
             print("Error: No se pueden canjear más millas de las acumuladas.")
             return self.__millas_acumuladas
+    
+    def get_num_viajero(self):
+        return self.__num_viajero
