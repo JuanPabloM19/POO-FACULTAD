@@ -1,39 +1,36 @@
-import csv
 from claseEmail import Email
+import csv
 
 if __name__ == '__main__':
-   
-    nombre = input("Ingrese su nombre: ")
-    idCuenta = input("Ingrese el id de la cuenta: ")
-    dominio = input("Ingrese el dominio de la cuenta: ")
-    tipo = input("Ingrese el tipo de dominio de la cuenta: ")
-    contrasena = input("Ingrese la contrasena: ")
-    emailInstance = Email(idCuenta, dominio, tipo, contrasena)
-    print("Estimado " + nombre + ", le enviaremos sus mensajes a: " + emailInstance.getEmail())
-
-    contrasenaActual = str(input("Ingrese su contrasena actual: "))
-    emailInstance.cambiarContrasena(contrasenaActual)
     
-    validEmails = []
-    invalidEmails = []
+    nombre = input("Ingrese nombre ")
+    idCuenta = input("Ingrese idCuenta ")
+    dominio = input("Ingrese dominio ")
+    tipo = input("Ingrese tipo ")
+    contrasena = input("Ingrese contrasena ")
+    emailInstance = Email(idCuenta, dominio, tipo, contrasena)
+    print(f"Estimado {nombre} te enviaremos tus mensajes a la dirección " + emailInstance.retornaEmail())
+
+    contrasenaA = str(input("Ingrese su contrasena actual "))
+    emailInstance.modificarContraseña(contrasenaA)
+    
+    els = []
     with open("test1.csv", "r") as f:
         lines = f.readlines()
-        for line in lines:
-            line = line.strip()
-            if "@" in line and "." in line:
-                validEmails.append(line)
+        for row in lines:
+            row = row.strip()
+            if "@" in row and "." in row:
+                els.append(row)
             else:
-                invalidEmails.append(line)
-        for email in validEmails:
+                print(f"Dirección de email incorrecta: {row}")
+        for email in els:
             emailInstance = Email()
             emailInstance.crearCuenta(email)
-            print(emailInstance.getEmail())
-        for email in invalidEmails:
-            print("Invalid " + email)
+            print(emailInstance.retornaEmail())
 
     count = 0
-    dominio = input("Buscar dominio: ")
-    for i in validEmails:
+    dominio = input("Ingrese dominio a buscar: ")
+    for email in els:
         if dominio == emailInstance.getDominio():
-            count += 1
-    print("La cantidad de objetos con el dominio %s es %d"%(dominio,count))
+            count = count + 1
+    print(f"La cantidad de direcciones de correo con el dominio {dominio} es de {count}")
